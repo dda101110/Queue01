@@ -35,14 +35,20 @@ namespace Queue01
         public T PopTop()
         {
             var result = PeekTop();
-            //Array.Resize(ref Items, Items.Length-1);
+            var lenght = Items.Length - 1;
+            var arr = new T[lenght];
+            Array.Copy(Items, 1, arr, 0, lenght);
+            Items = arr;
 
             return result;
         }
         public T PopEnd()
         {
             var result = PeekEnd();
-            //Array.Resize(ref Items, Items.Length-1);
+            var lenght = Items.Length - 1;
+            var arr = new T[lenght];
+            Array.Copy(Items, 0, arr, 0, lenght);
+            Items = arr;
 
             return result;
         }
