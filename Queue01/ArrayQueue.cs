@@ -35,20 +35,14 @@ namespace Queue01
         public T PopTop()
         {
             var result = PeekTop();
-            var lenght = Items.Length - 1;
-            var arr = new T[lenght];
-            Array.Copy(Items, 1, arr, 0, lenght);
-            Items = arr;
+            Resize(1);
 
             return result;
         }
         public T PopEnd()
         {
             var result = PeekEnd();
-            var lenght = Items.Length - 1;
-            var arr = new T[lenght];
-            Array.Copy(Items, 0, arr, 0, lenght);
-            Items = arr;
+            Resize(0);
 
             return result;
         }
@@ -66,5 +60,12 @@ namespace Queue01
         }
         public int Count { get => Items.Length; }
         public bool IsEmpty { get => Count == 0; }
+        private void Resize(int idx)
+        {
+            var lenght = Items.Length - 1;
+            var arr = new T[lenght];
+            Array.Copy(Items, idx, arr, 0, lenght);
+            Items = arr;
+        }
     }
 }
