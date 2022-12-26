@@ -57,4 +57,22 @@ try
     displayQueue($"exception PopEnd()");
 }
 
+Console.WriteLine("\r\nExample 03 / LinkedQueue\r\n");
+queue = new LinkedQueue<string>();
+
+queue.PushEnd("20");
+displayQueue("PushEnd(20)");
+
+queue.PushEnd("10");
+displayQueue("PushEnd(10)");
+
+queue.PushTop("30");
+displayQueue("PushTop(30)");
+
+element = queue.PopTop();
+displayQueue($"PopTop()={element}");
+
+element = queue.PopEnd();
+displayQueue($"PopEnd()={element}");
+
 
